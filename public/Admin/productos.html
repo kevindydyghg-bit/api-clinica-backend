@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Productos</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body class="fondo-blanco">
+    <header>
+        <h1>Gestión de Inventario</h1>
+        <nav>
+            <a href="/admin/productos.html"><strong>Inventario Productos</strong></a> | 
+            <a href="/admin/pacientes.html">Gestión Pacientes</a>
+        </nav>
+        
+        <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </header>
+
+    <main>
+        
+        <section class="card">
+            <h2>Administrar Productos</h2>
+
+            <form id="producto-form">
+                <input type="hidden" id="edit-id">
+                
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div>
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" required>
+                </div>
+                <div>
+                    <label for="precio">Precio:</label>
+                    <input type="number" step="0.01" id="precio" required>
+                </div>
+                <button type="submit" id="btn-guardar">Guardar Producto</button>
+                <button type="button" id="btn-cancelar" style="display: none;">Cancelar Edición</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Inventario Actual</h2>
+            
+            <input type="text" id="search-input" placeholder="Buscar producto por nombre..." style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eaeaea;">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productos-tabla">
+                    </tbody>
+            </table>
+
+            <div id="pagination-controls" class="pagination-container">
+                </div>
+        </section>
+
+    </main>
+
+    <script src="/admin/productos.js"></script>
+</body>
+</html>

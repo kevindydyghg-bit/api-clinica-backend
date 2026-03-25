@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación API - Clínica</title>
+    <link rel="stylesheet" href="/estilos.css">
+    <style>
+        pre { background: #222; color: #0f0; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: monospace; }
+        .metodo { font-weight: bold; padding: 3px 8px; border-radius: 4px; color: white; margin-right: 10px; }
+        .get { background-color: #61affe; }
+        .post { background-color: #49cc90; }
+        .put { background-color: #fca130; }
+        .endpoint-box { border: 1px solid var(--color-borde); padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+        
+        main {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .aclaraciones {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffecb5;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            color: #856404;
+        }
+        .aclaraciones ul { margin-top: 10px; padding-left: 20px; }
+        .aclaraciones li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reglas y Documentación de la API 💻</h1>
+        <nav>
+            <a href="/index.html">Volver al Inicio</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Guía para pruebas (Postman / Thunder Client)</h2>
+        <p><strong>URL Base:</strong> <code>http://localhost:3000</code></p>
+        
+        <div class="aclaraciones">
+            <h3>⚠️ Aclaraciones Importantes de Uso</h3>
+            <ul>
+                <li><strong>La API es estricta:</strong> Si se intenta enviar una petición POST sin los campos obligatorios (nombre_completo, fecha_nacimiento, telefono), la API rechazará la petición con un error 400.</li>
+                <li><strong>POST crea registros nuevos (No edita):</strong> Para editar la información de un paciente ya existente, la API cuenta con el método <strong>PUT</strong>.</li>
+                <li><strong>¿Cómo ver los cambios reflejados?</strong> Después de enviar datos exitosamente (201 Created), se puede verificar enviando una petición <strong>GET</strong> en Postman hacia la misma ruta, o recargando la tabla en el panel de administrador web.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="endpoint-box">
+            <h3><span class="metodo get">GET</span> /api/pacientes</h3>
+            <p><strong>Descripción:</strong> Obtiene la lista completa de todos los pacientes registrados.</p>
+            <p><strong>Reglas:</strong> No requiere enviar ningún cuerpo (body) ni parámetros.</p>
+        </div>
+
+        <div class="endpoint-box">
+            <h3><span class="metodo post">POST</span> /api/pacientes</h3>
+            <p><strong>Descripción:</strong> Crea un nuevo registro de paciente en la base de datos.</p>
+            <p><strong>Reglas (Headers):</strong> Debe incluir <code>Content-Type: application/json</code>.</p>
+            <p><strong>Reglas (Body):</strong> Se requiere enviar un JSON estructurado de la siguiente manera:</p>
+            <pre>
+{
+  "nombre_completo": "Juan Pérez",
+  "fecha_nacimiento": "1990-05-15",
+  "telefono": "3141234567",
+  "email": "juan@correo.com",
+  "direccion": "Centro, Manzanillo",
+  "notas_historial": "Paciente sin alergias conocidas."
+}
+            </pre>
+        </div>
+
+        <div class="endpoint-box">
+            <h3><span class="metodo put">PUT</span> /api/pacientes/:id</h3>
+            <p><strong>Descripción:</strong> Actualiza la información de un paciente que ya existe.</p>
+            <p><strong>Reglas (URL):</strong> Reemplazar <code>:id</code> por el ID del paciente a editar (ej. <code>/api/pacientes/1</code>).</p>
+            <p><strong>Reglas (Body):</strong> Requiere el JSON completo con los datos actualizados.</p>
+            <pre>
+{
+  "nombre_completo": "Juan Pérez Modificado",
+  "fecha_nacimiento": "1990-05-15",
+  "telefono": "3149998888",
+  "email": "juan_nuevo@correo.com",
+  "direccion": "Nueva Dirección, Manzanillo",
+  "notas_historial": "Actualizó su teléfono."
+}
+            </pre>
+        </div>
+
+        <div class="endpoint-box">
+            <h3><span class="metodo get">GET</span> /api/productos</h3>
+            <p><strong>Descripción:</strong> Obtiene la lista del inventario médico.</p>
+        </div>
+    </main>
+</body>
+</html>

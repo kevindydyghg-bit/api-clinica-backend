@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pacientes</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body class="fondo-blanco"> 
+
+    
+
+    <header>
+        <h1>Gestión de Pacientes</h1>
+        <nav>
+            <a href="/admin/productos.html">Inventario Productos</a> | 
+            <a href="/admin/pacientes.html"><strong>Gestión Pacientes</strong></a>
+        </nav>
+        
+        <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </header>
+
+    <main>
+        
+        <section class="card">
+            <h2>Registrar Nuevo Paciente</h2>
+
+            <form id="paciente-form">
+                <input type="hidden" id="edit-id">
+                
+                <div>
+                    <label for="nombre_completo">Nombre Completo:</label>
+                    <input type="text" id="nombre_completo" required>
+                </div>
+                <div>
+                    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" required>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+                 <div>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email">
+                </div>
+                
+                <div style="grid-column: 1 / -1;">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion">
+                </div>
+                <div style="grid-column: 1 / -1;">
+                    <label for="notas_historial">Notas / Historial Médico:</label>
+                    <textarea id="notas_historial" rows="4"></textarea>
+                </div>
+
+                <button type="submit" id="btn-guardar">Guardar Paciente</button>
+                <button type="button" id="btn-cancelar" style="display: none;">Cancelar Edición</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Lista de Pacientes</h2>
+
+            <input type="text" id="search-input" placeholder="Buscar paciente por nombre o email..." style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eaeaea;">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Completo</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="pacientes-tabla">
+                    </tbody>
+            </table>
+            
+            <div id="pagination-controls" class="pagination-container">
+                </div>
+        </section>
+        
+    </main>
+
+    <script src="/admin/pacientes.js"></script>
+</body>
+</html>

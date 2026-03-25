@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Panel Administrativo</h1>
+        <div class="header-buttons">
+            <button class="btn-primary" onclick="abrirVentana('/admin/registrar-admin.html')">
+                 Nuevo Admin
+            </button>
+            <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="welcome-card">
+            <h2 id="user-greeting">Bienvenido</h2>
+            <p>Seleccione una opción para comenzar a trabajar.</p>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Pacientes</h3>
+                <p id="stat-pacientes">Cargando...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Productos</h3>
+                <p id="stat-productos">Cargando...</p>
+            </div>
+            
+            <div class="stat-card warning" onclick="abrirVentana('/admin/productos.html?filtro=bajo')" style="cursor: pointer;">
+                <h3>Stock Bajo</h3>
+                <p id="stat-stock">Cargando...</p>
+            </div>
+        </section>
+
+        <section class="menu-grid">
+            
+            <div class="menu-card" onclick="abrirVentana('/admin/productos.html')">
+                <img src="/img/Instrumental.png" alt="Icono Instrumental" class="menu-icon">
+                <h3>Inventario de Instrumental</h3>
+                <p>Gestionar productos, precios y stock.</p>
+            </div>
+
+            <div class="menu-card" onclick="abrirVentana('/admin/pacientes.html')">
+                <img src="/img/GestiondePacientes.png" alt="Icono Pacientes" class="menu-icon">
+                <h3>Gestión de Pacientes</h3>
+                <p>Registrar altas, bajas y expedientes.</p>
+            </div>
+
+        </section>
+
+        <div id="workspace-container">
+            <div class="workspace-header">
+                <button id="btn-close-workspace">✖ Cerrar Ventana</button>
+            </div>
+            <iframe id="app-frame" src=""></iframe>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seguridad
+            if (!localStorage.getItem('usuario_conectado')) {
+                window.location.href = '/admin/login.html';
+            }
+
+            // Saludo
+            const email = localStorage.getItem('usuario_email') || 'Usuario';
+            document.getElementById('user-greeting').textContent = `Hola, ${email}`;
+
+            // Logout
+            document.getElementById('btn-logout').addEventListener('click', () => {
+                localStorage.removeItem('usuario_conectado');
+                localStorage.removeItem('usuario_email');
+                window.location.href = '/admin/login.html';
+            });
+
+            // Cerrar Ventana
+            document.getElementById('btn-close-workspace').addEventListener('click', () => {
+                document.getElementById('workspace-container').style.display = 'none';
+                document.getElementById('app-frame').src = ""; 
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Recargar estadísticas al cerrar
+                cargarEstadisticas();
+            });
+
+            cargarEstadisticas();
+        });
+
+        async function cargarEstadisticas() {
+            try {
+                const response = await fetch('/api/stats');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('stat-pacientes').textContent = data.pacientes;
+                    document.getElementById('stat-productos').textContent = data.productos;
+                    document.getElementById('stat-stock').textContent = data.stockBajo;
+                }
+            } catch (error) {
+                console.error("Error cargando stats", error);
+            }
+        }
+
+        function abrirVentana(url) {
+            const container = document.getElementById('workspace-container');
+            const frame = document.getElementById('app-frame');
+            frame.src = url; 
+            container.style.display = 'block';
+            setTimeout(() => { container.scrollIntoView({ behavior: 'smooth' }); }, 100);
+        }
+    </script>
+
+</body>
+</html>

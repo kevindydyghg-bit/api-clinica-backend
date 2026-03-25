@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotiInclusiva – Noticias y accesibilidad</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="reader.js" defer></script>
+</head>
+<body>
+  <!-- Barra superior tipo breaking news -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <div class="breaking-label">ÚLTIMA HORA</div>
+      <div class="breaking-text">
+        Grandes empresas tecnológicas anuncian nuevas funciones de accesibilidad para personas con discapacidad visual y auditiva.
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <span>Miércoles, 3 de diciembre · Sitio de ejemplo educativo</span>
+    </div>
+  </header>
+
+  <!-- Encabezado estilo CNN -->
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-box">NI</span>
+      <span class="logo-text">NotiInclusiva</span>
+    </div>
+    <nav class="nav">
+      <a href="#portada">Portada</a>
+      <a href="#ultimas">Últimas noticias</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#sociedad">Sociedad</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="mainContent" class="main-content">
+    <!-- GRID principal: columna noticias + sidebar -->
+    <section id="portada" class="main-grid">
+      <!-- Columna principal -->
+      <div class="main-column">
+        <!-- Artículo principal -->
+        <article class="hero-article">
+          <h1>NotiInclusiva: noticias reales con enfoque en accesibilidad digital</h1>
+          <p class="hero-lead">
+            Este portal de ejemplo reúne noticias recientes sobre tecnología, educación y sociedad,
+            todas relacionadas con accesibilidad e inclusión para personas con discapacidad.
+          </p>
+          <p>
+            El diseño imita el estilo de un noticiero profesional y, al mismo tiempo, integra una
+            propuesta tecnológica: un lector accesible que puede leer la página completa o solo el
+            texto que seleccione el usuario, facilitando el acceso a la información para personas
+            con discapacidad visual.
+          </p>
+        </article>
+
+        <!-- Últimas noticias -->
+        <section id="ultimas" class="section">
+          <h2 class="section-title">Últimas noticias</h2>
+          <div class="grid grid-3">
+            <article class="news-card">
+              <h3>Apple anuncia nuevas funciones de accesibilidad</h3>
+              <p>
+                Apple presenta herramientas como integración mejorada con dispositivos braille,
+                modos de lectura simplificada y mejoras en sus equipos para apoyar a personas
+                con baja visión o ceguera.
+              </p>
+              <p class="meta">Tecnología · Accesibilidad</p>
+            </article>
+
+            <article class="news-card">
+              <h3>Target extiende cajas de autopago accesibles</h3>
+              <p>
+                La cadena de tiendas planea un despliegue nacional de sistemas de autopago con
+                botones táctiles, braille, audio guiado y opciones para personas con movilidad reducida.
+              </p>
+              <p class="meta">Consumo · Inclusión</p>
+            </article>
+
+            <article class="news-card">
+              <h3>Centro educativo impulsa IA para educación sin barreras</h3>
+              <p>
+                Una universidad refuerza su centro de recursos para estudiantes con discapacidad,
+                integrando lectores de pantalla, ampliadores, dispositivos braille y herramientas
+                basadas en inteligencia artificial.
+              </p>
+              <p class="meta">Educación · Innovación</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Bloque Tecnología y accesibilidad -->
+        <section id="tecnologia" class="section">
+          <h2 class="section-title">Tecnología y accesibilidad</h2>
+          <div class="grid grid-2">
+            <article class="news-card">
+              <h3>Estudio revela poca accesibilidad en anuncios de TV</h3>
+              <p>
+                Un informe internacional señala que solo una pequeña parte de los anuncios televisivos
+                incluye funciones como subtítulos o audiodescripción, a pesar de que muchas personas
+                ya consumen contenido con subtítulos activados.
+              </p>
+              <p>
+                El estudio recuerda que no aprovechar estas funciones excluye a millones de personas
+                con discapacidad auditiva y visual, además de desaprovechar el potencial de un público
+                más amplio que prefiere contenidos accesibles.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <h3>AR y VR se integran en la atención médica inclusiva</h3>
+              <p>
+                Investigaciones recientes exploran cómo la realidad aumentada y la realidad virtual
+                pueden apoyar la rehabilitación, la educación de pacientes y la asistencia en
+                telemedicina para personas con diferentes tipos de discapacidad.
+              </p>
+              <p>
+                Los proyectos buscan reducir barreras en hospitales y consultas en línea, ofreciendo
+                experiencias inmersivas adaptadas a necesidades visuales, auditivas y motoras.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Sociedad y educación -->
+        <section id="sociedad" class="section">
+          <h2 class="section-title">Sociedad y educación inclusiva</h2>
+          <div class="grid grid-2">
+            <article class="news-card">
+              <h3>Escuelas integran lectores de texto en sus plataformas</h3>
+              <p>
+                Instituciones de educación básica y media comienzan a incorporar lectores de texto
+                y herramientas de texto a voz en sus aulas virtuales, con el fin de apoyar a
+                estudiantes con discapacidad visual o dificultades de lectura.
+              </p>
+              <p>
+                Docentes reportan que estas soluciones también benefician a estudiantes sin
+                discapacidad, que prefieren alternar entre lectura y audio para comprender mejor
+                los contenidos.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <h3>Bibliotecas exploran asistentes con IA para usuarios con discapacidad</h3>
+              <p>
+                En algunos países, bibliotecas especializadas están probando asistentes basados en
+                inteligencia artificial que ayudan a localizar materiales, leer fragmentos en voz
+                alta y guiar a las personas dentro del edificio.
+              </p>
+              <p>
+                Los primeros estudios señalan que estas herramientas aumentan la autonomía y la
+                participación de usuarios con discapacidad visual o motora.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Artículo especial más largo -->
+        <section class="section">
+          <h2 class="section-title">Artículo especial</h2>
+          <div class="grid grid-2">
+            <article class="news-card">
+              <h3>Por qué un lector de texto es clave en un medio de noticias</h3>
+              <p>
+                Los portales informativos suelen actualizarse constantemente, lo que implica una
+                gran cantidad de texto que no siempre es accesible para todos. Un lector de texto
+                integrado permite que cualquier persona escuche la información sin depender de otra
+                persona para que se la lea.
+              </p>
+              <p>
+                Esta herramienta resulta especialmente útil para personas con discapacidad visual,
+                con baja visión, con fatiga ocular o que simplemente prefieren el formato audio
+                mientras realizan otras actividades.
+              </p>
+              <p>
+                Incorporar esta tecnología es una forma concreta de respetar la dignidad y la
+                autonomía de los usuarios, alineándose con principios éticos como la justicia,
+                la beneficencia y la no discriminación.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <h3>Cómo funciona el lector accesible de NotiInclusiva</h3>
+              <p>
+                El lector de este sitio utiliza la síntesis de voz del navegador. El widget ubicado
+                en la esquina inferior derecha ofrece dos modos de uso: leer el contenido principal
+                de la página o leer únicamente el texto que el usuario selecciona con el cursor.
+              </p>
+              <p>
+                Esta propuesta tecnológica es sencilla de implementar en código y puede adaptarse a
+                distintos tipos de sitios: portales de noticias, páginas escolares, blogs o incluso
+                tiendas en línea.
+              </p>
+              <p>
+                Además, la velocidad de la voz se puede ajustar, lo que permite que cada persona
+                adapte la experiencia a su ritmo de escucha preferido.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Bloque extra para alargar aún más la página -->
+        <section class="section">
+          <h2 class="section-title">Análisis y contexto</h2>
+          <div class="grid grid-3">
+            <article class="section-card">
+              <h3>Impacto económico de la accesibilidad</h3>
+              <p>
+                Expertos recuerdan que incluir a las personas con discapacidad no solo es una cuestión
+                ética, sino también económica: representan un grupo con gran poder de consumo que
+                suele ser ignorado por productos y servicios no accesibles.
+              </p>
+            </article>
+
+            <article class="section-card">
+              <h3>Normativas y estándares internacionales</h3>
+              <p>
+                Documentos como las pautas de accesibilidad para contenidos web sirven de guía para
+                que empresas, gobiernos y organizaciones diseñen sitios compatibles con lectores de
+                pantalla y tecnologías asistivas.
+              </p>
+            </article>
+
+            <article class="section-card">
+              <h3>Futuro de la inclusión digital</h3>
+              <p>
+                Investigaciones actuales apuntan a combinar inteligencia artificial, dispositivos
+                móviles y tecnologías inmersivas para crear experiencias más personalizadas, donde
+                cada usuario pueda configurar cómo quiere recibir la información.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar tipo CNN -->
+      <aside class="sidebar">
+        <section class="sidebar-block">
+          <h2>Más titulares</h2>
+          <ul class="headline-list">
+            <li>Grandes marcas prueban interfaces de voz en cajeros y kioscos.</li>
+            <li>Aplicaciones de lectura fácil se expanden en plataformas móviles.</li>
+            <li>Organizaciones civiles piden mayor accesibilidad en sitios gubernamentales.</li>
+            <li>Estudiantes desarrollan apps para guiar a personas ciegas en campus escolares.</li>
+          </ul>
+        </section>
+
+        <section class="sidebar-block">
+          <h2>Temas clave</h2>
+          <ul class="tag-list">
+            <li>#Accesibilidad</li>
+            <li>#Tecnología</li>
+            <li>#Educación</li>
+            <li>#DerechosHumanos</li>
+            <li>#InclusiónDigital</li>
+          </ul>
+        </section>
+
+        <section id="contacto" class="sidebar-block">
+          <h2>Contacto</h2>
+          <p>
+            NotiInclusiva es un ejemplo académico. En un proyecto real, aquí se podrían mostrar
+            datos de contacto, enlaces a redes sociales o un formulario para comentarios y quejas
+            sobre problemas de accesibilidad.
+          </p>
+          <form class="form-card">
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" placeholder="tucorreo@ejemplo.com">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" placeholder="Tu nombre">
+            <button type="button" class="btn-primary btn-full">Enviar comentario</button>
+            <p class="helper-text">
+              Este formulario es ilustrativo y no envía información real; solo muestra cómo luciría
+              una sección de contacto en un noticiero digital.
+            </p>
+          </form>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Widget accesible (lector en la esquina) -->
+  <aside class="accessibility-widget">
+    <h3>Lector accesible</h3>
+    <p class="widget-text">
+      Escucha la página completa o solo el texto que selecciones con el cursor.
+    </p>
+
+    <div class="widget-controls">
+      <button id="btnReadPage" class="btn-primary">🔊 Leer página</button>
+      <button id="btnReadSelection" class="btn-secondary">🔊 Leer selección</button>
+      <button id="btnStop" class="btn-secondary">⏹ Detener</button>
+    </div>
+
+    <div class="widget-slider">
+      <label for="rateSlider">Velocidad de voz: <span id="rateValue">1.0x</span></label>
+      <input id="rateSlider" type="range" min="0.5" max="1.5" step="0.1" value="1">
+    </div>
+
+    <p id="readingStatus" class="widget-status">Estado: en espera</p>
+  </aside>
+
+  <footer class="site-footer">
+    <p>NotiInclusiva · Sitio de noticias de ejemplo con propuesta tecnológica accesible.</p>
+  </footer>
+</body>
+</html>
